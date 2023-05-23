@@ -1,0 +1,49 @@
+{
+  "$id": "VorAppMeta",
+  "$ref": "#/definitions/AppMetaConfig",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "AppMetaConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "envInheritFrom": {
+          "additionalProperties": {
+            "description": "Specify environment name as `key`, and the environment to inherit from as value.",
+            "type": "string"
+          },
+          "description": "Specify environment and their inheritance.",
+          "type": "object"
+        },
+        "inheritFrom": {
+          "description": "Specify app sections to inherit from.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "vault": {
+          "$ref": "#/definitions/RemoteSourceVaultConfig"
+        }
+      },
+      "type": "object"
+    },
+    "RemoteSourceVaultConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "configVersions": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "defaultSegmentName": {
+          "type": "string"
+        },
+        "mountPoint": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
