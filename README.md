@@ -1,0 +1,1 @@
+# rig-json-schema-public
