@@ -1,6 +1,6 @@
 {
-  "$id": "VorAppMeta",
-  "$ref": "#/definitions/AppMetaConfig",
+  "$id": "VorSourceMeta",
+  "$ref": "#/definitions/SourceMetaConfig",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
     "AppMetaConfig": {
@@ -42,6 +42,17 @@
         },
         "mountPoint": {
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SourceMetaConfig": {
+      "additionalProperties": false,
+      "description": "Source meta configuration to specify source (repository wide) configuration.",
+      "properties": {
+        "appDefaults": {
+          "$ref": "#/definitions/AppMetaConfig",
+          "description": "Specify default app meta to be used, which will be merged with @see AppMetaConfig if provided for the app."
         }
       },
       "type": "object"
